@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="Img/Icono2.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <title>Institucional</title>
+    <link rel="stylesheet" href="backend.css">
+    <link rel="stylesheet" href="./Iconos/style.css">
+
+    <!--MENSAJE EN CONSOLA-->
+    <script>
+
+        var mensaje = ("Pagina institucional")
+        console.log("Esto es una" + " " + mensaje);
+        var alumno = new Object()
+        alumno.nombre = 'Walter'
+        alumno.apellido = 'Frias'
+        alumno.curso = 'Codo a Codo fullstack'
+        alumno.comicion = '23006'
+        console.log('Alumno :', alumno.nombre, alumno.apellido, '.', ' ', 'Cursando', alumno.curso, 'Comición', alumno.comicion)
+    </script>
+</head>
+
+<body>
+
+    <!--HEADER-->
+
+    <header id="Grid_header">
+        <section id="arriba">
+            <div class="Flex__Cointainer">
+                <div class="Flex__Cointainer Titulo">
+                    <a href="index.html"><img src="Img/Logo2.png" width="50" alt="Logo"></a>
+                    <h4><a href="index.html" id="SB">ST BURGER API</a></h4>
+                </div>
+                <span class="Menu__icon icon-menu3"></span>
+
+                <nav class="Flex__Cointainer Menu">
+                    <ul>
+                        <li class="Nav__li"><a href="index.html" Target="_blank">Api</a></li>
+                        <li class="Nav__li"><a href="lista.html" Target="_blank">Productos</a></li>
+                        <li class="Nav__li"><a href="pedidos.html" Target="_blank">Pedidos</a></li>
+                        <li class="Nav__li"><a href="modificar.html" Target="_blank">Modificar.P</a></li>
+                        <li class="Nav__li"><a href="eliminar.html" Target="_blank">Eliminar.P</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+
+    <!--CONTENIDO DE LA PAGINA-->
+
+
+    <article class="contenedor_2">
+        <div class="item2">
+            <h1>AGREGAR PRODUCTOS</h1>
+            <form id="formulario">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" required><br>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required><br>
+
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required><br>
+
+                <button type="submit">Agregar Producto</button>
+                <a href="index.html">Menu principal</a>
+            </form>
+        </div>
+    </article>
+
+    <footer id="footer">
+
+        <ul class="Flex__Cointainer" id="Redes">
+            <li class="Redes__item"><a href="https://www.facebook.com/profile.php?id=100055273845013"
+                    Target="_blank"><span class="icon-facebook2"></span></a></li>
+            <li class="Redes__item"><a href="https://instagram.com/saint.burger?igshid=YmMyMTA2M2Y="
+                    Target="_blank"><span class="icon-instagram"></span></a></li>
+            <li class="Redes__item"><a href="" Target="_blank"><span class="icon-whatsapp"></span></a></li>
+            <li class="Redes__item"><a href="https://github.com/codoacodo-unidad-1/Proyecto_SaintBuger_grupo2.git"
+                    Target="_blank"><span class="icon-github"></span></a></li>
+
+        </ul>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
