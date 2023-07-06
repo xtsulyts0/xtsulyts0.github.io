@@ -46,6 +46,8 @@ body {
     padding-right: 0px;
 }
 
+
+
 .Nav__li a:link {
     color:  darkkhaki;
 }
@@ -144,16 +146,32 @@ body {
     padding-top: 120px;
     background-color: rgb(53, 55, 54);
 }
+
+
+.contenedor_2 table {
+    background-color: bisque;
+    box-shadow:  rgba(163,163,163,0.4);
+    border-radius: 5px;
+}
 .contenedor_2 div {
     background-color: rgb(106, 99, 86);
-    opacity: 0.3;
+    
 }
 
+.contenedor_2 h1,h3 {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
+    letter-spacing: 8px;
+    color: darkkhaki;
+
+}
 .contenedor_2 div:hover {
     background-color: rgb(53, 55, 54);
     transition: all 2s linear;
 
 }
+
 .contenedor_2 :hover {
   
     background-color: rgb darkkhaki;

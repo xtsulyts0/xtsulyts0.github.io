@@ -6,24 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <title>Institucional</title>
     <link rel="stylesheet" href="backend.css">
     <link rel="stylesheet" href="./Iconos/style.css">
 
-    <!--MENSAJE EN CONSOLA-->
-    <script>
-
-        var mensaje = ("tp final")
-        console.log(mensaje);
-        var alumno = new Object()
-        alumno.nombre = ''
-        alumno.apellido = ''
-        alumno.curso = 'Codo a Codo fullstack'
-        alumno.comicion = '23006'
-        console.log('Alumno :', alumno.nombre, alumno.apellido, '.', ' ', 'Cursando', alumno.curso, 'Comición', alumno.comicion)
-    </script>
+  
 </head>
 
 <body>
@@ -41,11 +29,11 @@
 
                 <nav class="Flex__Cointainer Menu">
                     <ul>
-                        <li class="Nav__li"><a href="index.html" Target="_blank">Api</a></li>
-                        <li class="Nav__li"><a href="agregar.html" Target="_blank">Agregar.P</a></li>
+                        <li class="Nav__li"><a href="index.html" Target="_blank">Inicio</a></li>
+                        <li class="Nav__li"><a href="agregar.html" Target="_blank">Agregar</a></li>
                         <li class="Nav__li"><a href="lista.html" Target="_blank">Productos</a></li>
-                        <li class="Nav__li"><a href="modificar.html" Target="_blank">Modificar.P</a></li>
-                        <li class="Nav__li"><a href="eliminar.html" Target="_blank">Eliminar.P</a></li>
+                        <li class="Nav__li"><a href="modificar.html" Target="_blank">Modificar</a></li>
+                        <li class="Nav__li"><a href="eliminar.html" Target="_blank">Eliminar</a></li>
 
                     </ul>
                 </nav>
@@ -58,8 +46,8 @@
 
     <article class="contenedor_2">
         <div id="app">
-            <h1>Carrito de compras</h1>
-            <h3>Codo a Codo 2023</h3>
+            <h1 >Carrito de compras</h1>
+
             <table>
               <thead>
                 <tr>
@@ -85,7 +73,7 @@
             </table>
         
             <div v-if="mostrarCarrito">
-              <h3>Productos en el carrito:</h3>
+              <h3>Productos en el carrito</h3>
               <table>
                 <thead>
                   <tr>
@@ -119,7 +107,7 @@
         
           <script>
             //const URL = "http://127.0.0.1:5000/"
-            const URL = "https://arielcodo.pythonanywhere.com/"
+            const URL = "https://xtsulyts.pythonanywhere.com/"
         
             const app = Vue.createApp({
               data() {
