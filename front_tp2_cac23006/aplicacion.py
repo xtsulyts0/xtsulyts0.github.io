@@ -3,20 +3,20 @@ from flask import Flask,  jsonify, request
 from flask_cors import CORS
 
 
-# Configuramos la conexión a la base de datos SQLite
-DATABASE = 'saint_burguer.db'
+# Configurar la conexión a la base de datos SQLite
+DATABASE = 'saint_burger.db'
 
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
-# Crear la tabla 'burguer' si no existe
+# Crear la tabla 'productos' si no existe
 def create_table():
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS burguer (
+        CREATE TABLE IF NOT EXISTS burgers (
             codigo INTEGER PRIMARY KEY,
             descripcion TEXT NOT NULL,
             cantidad INTEGER NOT NULL,
@@ -66,12 +66,12 @@ class Inventario:
             return jsonify({'message': 'Ya existe un producto con ese código.'}), 400
 
         nuevo_producto = Producto(codigo, descripcion, cantidad, precio)
-        self.cursor.execute("INSERT INTO burguer VALUES (?, ?, ?, ?)", (codigo, descripcion, cantidad, precio))
+        self.cursor.execute("INSERT INTO burgers VALUES (?, ?, ?, ?)", (codigo, descripcion, cantidad, precio))
         self.conexion.commit()
         return jsonify({'message': 'Producto agregado correctamente.'}), 200
 
     def consultar_producto(self, codigo):
-        self.cursor.execute("SELECT * FROM burguer WHERE codigo = ?", (codigo,))
+        self.cursor.execute("SELECT * FROM burgers WHERE codigo = ?", (codigo,))
         row = self.cursor.fetchone()
         if row:
             codigo, descripcion, cantidad, precio = row
@@ -82,14 +82,14 @@ class Inventario:
         producto = self.consultar_producto(codigo)
         if producto:
             producto.modificar(nueva_descripcion, nueva_cantidad, nuevo_precio)
-            self.cursor.execute("UPDATE burguer SET descripcion = ?, cantidad = ?, precio = ? WHERE codigo = ?",
+            self.cursor.execute("UPDATE burgers SET descripcion = ?, cantidad = ?, precio = ? WHERE codigo = ?",
                                 (nueva_descripcion, nueva_cantidad, nuevo_precio, codigo))
             self.conexion.commit()
             return jsonify({'message': 'Producto modificado correctamente.'}), 200
         return jsonify({'message': 'Producto no encontrado.'}), 404
 
     def listar_productos(self):
-        self.cursor.execute("SELECT * FROM burguer")
+        self.cursor.execute("SELECT * FROM burgers")
         rows = self.cursor.fetchall()
         productos = []
         for row in rows:
@@ -99,7 +99,7 @@ class Inventario:
         return jsonify(productos), 200
 
     def eliminar_producto(self, codigo):
-        self.cursor.execute("DELETE FROM burguer WHERE codigo = ?", (codigo,))
+        self.cursor.execute("DELETE FROM burgers WHERE codigo = ?", (codigo,))
         if self.cursor.rowcount > 0:
             self.conexion.commit()
             return jsonify({'message': 'Producto eliminado correctamente.'}), 200
@@ -125,14 +125,14 @@ class Carrito:
         for item in self.items:
             if item.codigo == codigo:
                 item.cantidad += cantidad
-                self.cursor.execute("UPDATE burguer SET cantidad = cantidad - ? WHERE codigo = ?",
+                self.cursor.execute("UPDATE buergers SET cantidad = cantidad - ? WHERE codigo = ?",
                                     (cantidad, codigo))
                 self.conexion.commit()
                 return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
 
         nuevo_item = Producto(codigo, producto.descripcion, cantidad, producto.precio)
         self.items.append(nuevo_item)
-        self.cursor.execute("UPDATE burguer SET cantidad = cantidad - ? WHERE codigo = ?",
+        self.cursor.execute("UPDATE burgers SET cantidad = cantidad - ? WHERE codigo = ?",
                             (cantidad, codigo))
         self.conexion.commit()
         return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
@@ -145,7 +145,7 @@ class Carrito:
                 item.cantidad -= cantidad
                 if item.cantidad == 0:
                     self.items.remove(item)
-                self.cursor.execute("UPDATE burguer SET cantidad = cantidad + ? WHERE codigo = ?",
+                self.cursor.execute("UPDATE burgers SET cantidad = cantidad + ? WHERE codigo = ?",
                                     (cantidad, codigo))
                 self.conexion.commit()
                 return jsonify({'message': 'Producto quitado del carrito correctamente.'}), 200
@@ -235,8 +235,8 @@ def obtener_carrito():
 # Ruta para obtener la lista de productos del inventario
 @app.route('/')
 def index():
-    return 'Aplicacion_burguers'
+    return 'Funciono!!!!!!'
 
 # Finalmente, si estamos ejecutando este archivo, lanzamos app.
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run()

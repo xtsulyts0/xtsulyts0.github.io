@@ -1,0 +1,527 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    background-color: rgb(106, 99, 86);
+
+}
+
+/*ESTILOS HEADER*/
+
+
+#Grid_header {
+    grid-area: footer;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #282b30;
+    z-index: 10;
+    position: fixed;
+    height: 110px;
+
+}
+
+.Flex__Cointainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #282b30;
+    padding-top: 10px;
+}
+
+#SB {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3.5em;
+    letter-spacing: 8px;
+    color: darkkhaki;
+    text-decoration: none;
+    margin-left: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.Nav__li a:link {
+    color:  darkkhaki;
+}
+
+.Nav__li a:hover {
+    color: rgb(3, 38, 12);
+}
+
+.Menu__icon {
+    display: none;
+    opacity: 1;
+    color: darkkhaki;
+}
+
+.Menu ul li {
+    display: inline-block;
+    color: darkkhaki;
+}
+
+.Menu ul li a {
+    font-size: 1.4rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4 linear;
+    border-radius: 5px;
+    text-decoration: none;
+    color: darkkhaki;
+
+}
+
+.Menu ul li a:hover {
+    border: 1px solid darkkhaki;
+    background-color:rgb(106, 99, 86);
+    transition: all 0.7s linear;
+    border-radius: 5px;
+}
+
+
+/*ESTILOS ARTICLE*/
+.contenedor_1 {
+
+    display: grid;
+    grid-template-columns: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 120px;
+    background-color: rgb(53, 55, 54);
+}
+
+
+.item1 p {
+    padding: 3vw;
+    gap: 0;
+    color: darkkhaki;
+
+}
+
+.item1 p {
+    padding: 3vw;
+    gap: 0;
+    color: darkkhaki;
+}
+
+
+
+.foto {
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+    padding: 0px;
+
+}
+.item1 {
+    grid-column: 4 span;
+    background-image: url(Img/fotoApi.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1200px;
+    object-fit: cover;
+    border-radius: 0px;
+
+}
+
+
+.contenedor_2 {
+
+    display: grid;
+    grid-template-columns: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 120px;
+    background-color: rgb(53, 55, 54);
+}
+.contenedor_2 div {
+    background-color: rgb(106, 99, 86);
+    opacity: 0.3;
+}
+
+.contenedor_2 div:hover {
+    background-color: rgb(53, 55, 54);
+    transition: all 2s linear;
+
+}
+.contenedor_2 :hover {
+  
+    background-color: rgb darkkhaki;
+    transition: 5s;
+    opacity: 1;
+}
+.item2 {
+    grid-column: 4 span;
+    background-image: url(Img/foto_institucional_4.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1200px;
+    object-fit: cover;
+    border-radius: 0px;
+
+}
+
+.item2 h1 {
+    padding-top: 30px;
+    padding-left: 45    0px;
+    padding-right: 90px;
+    gap: 0;
+    color: darkkhaki;
+    font-size: 2rem;
+}
+
+.contenedor_2 div:hover {
+    border: 3px solid darkkhaki;
+    background-color: rgb(106, 99, 86);
+    transition: all 0.7s linear;
+    border-radius: 5px;
+}
+
+.foto_2 {
+    padding-left: 10px;
+    width: 90%;
+    position: relative;
+    object-fit: cover;
+
+}
+
+.contenedor_3 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    column-gap: 10px;
+    font-size: 1.5vw;
+    row-gap: 0px;
+
+}
+
+.contenedor_3 div:hover {
+    border: 3px solid darkkhaki;
+    background-color: rgb(53, 55, 54);
+    transition: all 0.7s linear;
+    border-radius: 5px;
+}
+.contenedor_3 a {
+    text-decoration: none;
+    color:rgb(78, 162, 100);
+    padding-left: 20rem;   
+}
+
+.foto_3 {
+    padding-right: 30PX;
+    padding-left: 30px;
+    padding-top: 30PX;
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+}
+
+
+
+
+/*ESTILOS FOOTER*/
+
+.footer {
+    grid-area: footer;
+    box-sizing: 1.5rem;
+    background-color: #282b30;
+    text-decoration: none;
+    position: fixed;
+}
+
+
+.Dire {
+    width: 100%;
+    text-align: center;
+    color: black;
+}
+
+.Dire a:visited {
+    color: black;
+}
+
+#Redes {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.Redes__item {
+    display: inline-block;
+    flex-basis: auto;
+    font-size: 0.5em;
+
+
+}
+
+.Dire a:visited {
+    color: black;
+}
+
+.Redes__item a {
+    font-size: 1.5rem;
+    display: block;
+    padding: 1rem 0.5rem;
+    transition: all 0.4 linear;
+    border-radius: 5px;
+    transition: 2s;
+    text-decoration: none;
+    color: darkkhaki;
+
+}
+
+.Redes__item a:hover {
+    color: rgb(78, 162, 100);
+}
+
+
+/*CORTE PARA TABLET*/
+
+
+@media only screen and (max-width: 768px)  {
+
+    .Titulo {
+        flex-shrink: 2;
+    }
+    
+    .Menu__icon  {
+        display: block;
+        color: darkkhaki;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .Menu {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .Menu ul {
+        display: none;
+    }
+
+    .Menu ul.Show {
+        display: block;
+    }
+
+    .Menu ul li {
+        display: block;
+        color:  darkkhaki;
+        text-align: center;
+    }
+
+    .Menu ul li a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4 linear;
+        border-radius: 5px;
+    }
+
+    .Menu ul li a:hover {
+        background-color: #a18ba3;
+    }
+    .Menu ul li a:hover {
+        border: 1px solid darkkhaki;
+        background-color:rgb(106, 99, 86);
+        transition: all 0.7s linear;
+        border-radius: 5px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+     
+    #SB {
+        font-size: 3.5em;
+    }
+    .Nav__li li a {
+        display: block;
+        color: darkkhaki;
+     }
+    
+    .contenedor_1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        padding-top: 125px;
+        padding-left: 0px;
+        padding-right: 0px;
+       
+    }
+    .item1 p {
+        font-size: 1.2rem;
+    }
+
+    .contenedor_2 {
+        display: grid;
+        column-span: 2 span;
+        padding: 0px;
+        row-gap: 10px;
+        font-size: 1.5rem;
+    }
+    
+
+    .contenedor_2 div:hover {
+        transition: all 2s linear;
+    }
+    
+
+    .item2 {
+        grid-column: 1 span;
+        background-image: url(Img/foto_institucional_8.jpg);
+        object-fit: cover;
+        width: 100%;
+        height: 650px;
+    }
+
+    .contenedor_3 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%; 
+        padding: 10px;
+    }
+    
+    .foto_3 {
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        object-fit: cover;
+    }  
+
+    .item2 p {
+        padding: 50px;
+        gap: 0;
+        color: darkkhaki;
+        font-size: 1.5rem;
+    }
+
+
+}
+
+/*CORTE PARA SMARTPHONE*/
+
+@media only screen and (max-width:479px) {
+
+    
+
+    .Titulo {
+        flex-shrink: 2;
+    }
+
+    #SB {
+        font-size: 1em;
+    }
+
+    .Menu {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+
+    .Menu ul.Show {
+        display: block;
+    }
+
+    .Menu ul li {
+        display: block;
+        color: blanchedalmond;
+        text-align: center;
+    }
+
+    .Menu ul li a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4 linear;
+        border-radius: 5px;
+    }
+    .Menu ul li a:hover {
+        border-radius: 5px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .icono {
+        display: flex;
+        padding-left: 15px;
+        padding-top: 10px;
+    }
+    
+    .contenedor_1 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding-top: 110px;
+       
+    }
+
+    .contenedor_1 p {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    .item1 p {
+        font-size: 1.3rem;
+    }
+
+    .foto {
+        width: 100%;
+    }
+
+    .contenedor_2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding: 0px;
+    }
+    
+    .contenedor_2 p {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .item2 {
+        object-fit: cover;
+        width: 100%;  
+    }
+    
+    .item2 p {
+        gap: 0;
+        color: darkkhaki;
+        font-size: 1.3rem;
+    }
+
+    .contenedor_3 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .contenedor_3 p {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .foto_3 {
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        object-fit: cover;
+    }
+
+}
