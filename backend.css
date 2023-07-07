@@ -85,28 +85,15 @@ body {
 
 
 /*ESTILOS ARTICLE*/
-
 .contenedor_1 {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto auto;
-    padding-left: 90px;
-    padding-right: 90px;
-    padding-top: 90px;
-    padding-bottom: 0px;
-    font-size: 1.5vw;
-    row-gap: 0px;
-}
-
-.contenedor_1 div {
-    background-color: rgb(106, 99, 86);
-    padding: 1em;
-}
-
-.contenedor_1 div:hover {
-    border: 3px solid darkkhaki;
+    grid-template-columns: auto;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 120px;
     background-color: rgb(53, 55, 54);
-    transition: all 0.7s linear;
 }
 
 
@@ -130,6 +117,17 @@ body {
     position: relative;
     object-fit: cover;
     padding: 0px;
+
+}
+.item1 {
+    grid-column: 4 span;
+    background-image: url(Img/fotoApi.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1200px;
+    object-fit: cover;
+    border-radius: 0px;
 
 }
 
