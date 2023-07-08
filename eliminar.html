@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
     <title>Eliminar</title>
     <link rel="stylesheet" href="eliminar.css">
     <link rel="stylesheet" href="./Iconos/style.css">
@@ -55,10 +55,10 @@
     </header>
 
     <!--CONTENIDO DE LA PAGINA-->
-    <!-- <article class="contenedor_1"
+    <article class="contenedor_2">
         <div class="item1">
         </div>
-    </article>   > --> 
+    </article>    
     
 
 
@@ -91,7 +91,8 @@
             <script src="https://unpkg.com/vue@next"></script>
             <script>
                 //const URL = "http://127.0.0.1:5000/"
-                const URL = "https://iv4n2000.pythonanywhere.com/";
+                //const URL = "https://iv4n2000.pythonanywhere.com/";
+                const URL = "https://xtsulyts.pythonanywhere.com/"
         
                 const app = Vue.createApp({
                     data() {
@@ -102,7 +103,7 @@
                     methods: {
                         obtenerProductos() {
                             // Obtenemos el contenido del inventario
-                            fetch(URL + 'productos')
+                            fetch(URL + 'burgers')
                                 .then(response => {
                                     if (response.ok) {
                                         return response.json(); // Parseamos la respuesta JSON
@@ -123,7 +124,7 @@
                         },
                         eliminarProducto(codigo) {
                             // Eliminamos el producto de la fila seleccionada
-                            fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
+                            fetch(URL + `burgers/${codigo}`, { method: 'DELETE' })
                                 .then(response => {
                                     if (response.ok) {
                                         // Eliminar el producto de la lista después de eliminarlo en el servidor
