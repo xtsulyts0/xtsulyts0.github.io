@@ -25,9 +25,6 @@ body {
     height: 110px;
 
 }
-.Flex__Cointainer {
-    
-}
 
 .Flex__Cointainer {
     display: flex;
@@ -87,53 +84,6 @@ body {
 }
 
 
-/*ESTILOS ARTICLE*/
-.contenedor_1 {
-
-    display: grid;
-    grid-template-columns: auto;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 30px;
-    padding-top: 120px;
-    background-color: rgb(53, 55, 54);
-}
-
-
-.item1 p {
-    padding: 3vw;
-    gap: 0;
-    color: darkkhaki;
-
-}
-
-.item1 p {
-    padding: 3vw;
-    gap: 0;
-    color: darkkhaki;
-}
-
-
-
-.foto {
-    width: 100%;
-    position: relative;
-    object-fit: cover;
-    padding: 0px;
-
-}
-.item1 {
-    grid-column: 4 span;
-    background-image: url(Img/fotoApi.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1200px;
-    object-fit: cover;
-    border-radius: 0px;
-
-}
-
 
 .contenedor_2 {
 
@@ -142,25 +92,10 @@ body {
     padding-right: 30px;
     padding-left: 30px;
     padding-bottom: 30px;
-    padding-top: 120px;
+    padding-top: 220px;
     background-color: rgb(53, 55, 54);
 }
-.contenedor_2 div {
-    background-color: rgb(106, 99, 86);
-    opacity: 0.3;
-}
 
-.contenedor_2 div:hover {
-    background-color: rgb(53, 55, 54);
-    transition: all 2s linear;
-
-}
-.contenedor_2 :hover {
-  
-    background-color: rgb darkkhaki;
-    transition: 5s;
-    opacity: 1;
-}
 .item2 {
     grid-column: 4 span;
     background-image: url(Img/foto_institucional_4.jpg);
@@ -182,56 +117,69 @@ body {
     font-size: 2rem;
 }
 
-.contenedor_2 div:hover {
-    border: 3px solid darkkhaki;
-    background-color: rgb(106, 99, 86);
-    transition: all 0.7s linear;
+.contenedor_2 .item2 thead {
+    padding-top: 100px;
+}
+table {
+    padding-top: 80px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:darkkhaki;
+    border: 1px solid lightslategray;
     border-radius: 5px;
+    opacity: 0.7;
+  
 }
 
-.foto_2 {
-    padding-left: 10px;
+input[type="text"],
+input[type="number"],
+textarea {
     width: 90%;
-    position: relative;
-    object-fit: cover;
-
-}
-
-.contenedor_3 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto auto;
-    padding-right: 80px;
-    padding-left: 80px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    column-gap: 10px;
-    font-size: 1.5vw;
-    row-gap: 0px;
-
-}
-
-.contenedor_3 div:hover {
-    border: 3px solid darkkhaki;
-    background-color: rgb(53, 55, 54);
-    transition: all 0.7s linear;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
     border-radius: 5px;
 }
-.contenedor_3 a {
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button {
+    padding: 8px;
+    margin:4px;
+    background-color: rgb(53, 55, 54);
+    color:  #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/*a {
+    padding: 8px;
+    margin:4px;
+    background-color: #fdab13;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     text-decoration: none;
-    color:rgb(78, 162, 100);
-    padding-left: 20rem;   
-}
-
-.foto_3 {
-    padding-right: 30PX;
-    padding-left: 30px;
-    padding-top: 30PX;
-    width: 100%;
-    position: relative;
-    object-fit: cover;
-}
-
+    font-size: 85%;
+}*/
 
 
 
