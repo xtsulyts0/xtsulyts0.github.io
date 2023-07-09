@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link rel="icon" href="Img/Icono2.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
-    <link rel="stylesheet" type="text/css" href="estilos.css">
-    <title>Institucional</title>
-    <link rel="stylesheet" href="backend.css">
+    <link rel="stylesheet" type="text/css" href="estilos_carrito.css">
+    <title>Carrito</title>
+    <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="./Iconos/style.css">
 
-    <!--MENSAJE EN CONSOLA-->
-    <script>
-
-        var mensaje = ("Pagina institucional")
-        console.log("Esto es una" + " " + mensaje);
-        var alumno = new Object()
-        alumno.nombre = 'Walter'
-        alumno.apellido = 'Frias'
-        alumno.curso = 'Codo a Codo fullstack'
-        alumno.comicion = '23006'
-        console.log('Alumno :', alumno.nombre, alumno.apellido, '.', ' ', 'Cursando', alumno.curso, 'Comición', alumno.comicion)
-    </script>
+  
 </head>
 
 <body>
@@ -35,17 +23,17 @@
             <div class="Flex__Cointainer">
                 <div class="Flex__Cointainer Titulo">
                     <a href="index.html"><img src="Img/Logo2.png" width="50" alt="Logo"></a>
-                    <h4><a href="index.html" id="SB">ST BURGER API</a></h4>
+                    <h4><a href="index.html" id="SB">CARRITO  DE  HAMBURGUESAS</a></h4>
                 </div>
                 <span class="Menu__icon icon-menu3"></span>
 
                 <nav class="Flex__Cointainer Menu">
                     <ul>
-                        <li class="Nav__li"><a href="index.html" Target="_blank">Api</a></li>
-                        <li class="Nav__li"><a href="agregar.html" Target="_blank">Agregar.P</a></li>
-                        <li class="Nav__li"><a href="lista.html" Target="_blank">Productos</a></li>
-                        <li class="Nav__li"><a href="modificar.html" Target="_blank">Modificar.P</a></li>
-                        <li class="Nav__li"><a href="eliminar.html" Target="_blank">Eliminar.P</a></li>
+                        <li class="Nav__li"><a href="index.html" >Api</a></li>
+                        <li class="Nav__li"><a href="agregar.html" >Agregar Productos</a></li>
+                        <li class="Nav__li"><a href="lista.html" >Productos</a></li>
+                        <li class="Nav__li"><a href="modificar.html" >Modificar Productos</a></li>
+                        <li class="Nav__li"><a href="eliminar.html" >Eliminar</a></li>
 
                     </ul>
                 </nav>
@@ -54,12 +42,15 @@
     </header>
 
     <!--CONTENIDO DE LA PAGINA-->
-
+    <article class="contenedor_2">
+      <div class="item1">
+      </div>
+  </article>    
 
     <article class="contenedor_2">
-        <div id="app">
-            <h1>Carrito de compras</h1>
-            <h3>Codo a Codo 2023</h3>
+        <div id="app"class="item2">
+            <!--<h1 >Carrito de compras</h1>-->
+
             <table>
               <thead>
                 <tr>
@@ -71,9 +62,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="producto in productos" :key="producto.codigo">
-                  <td>{{ producto.codigo }}</td>
-                  <td>{{ producto.descripcion }}</td>
+                <tr v-for="producto in burgers" :key="producto.codigo">
+                  <td align="center">{{ producto.codigo }}</td>
+                  <td align="center">{{ producto.descripcion }}</td>
                   <td align="right">{{ producto.cantidad }}</td>
                   <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
                   <td>
@@ -84,8 +75,8 @@
               </tbody>
             </table>
         
-            <div v-if="mostrarCarrito">
-              <h3>Productos en el carrito:</h3>
+            <div v-if="mostrarCarrito" >
+              <h3>Productos en el carrito</h3>
               <table>
                 <thead>
                   <tr>
@@ -97,8 +88,8 @@
                 </thead>
                 <tbody>
                   <tr v-for="item in carrito" :key="item.codigo">
-                    <td>{{ item.codigo }}</td>
-                    <td>{{ item.descripcion }}</td>
+                    <td >{{ item.codigo }}</td>
+                    <td >{{ item.descripcion }}</td>
                     <td align="right">{{ item.cantidad }}</td>
                     <td align="right">&nbsp; &nbsp; {{ item.precio }}</td>
                   </tr>
@@ -106,8 +97,8 @@
               </table>
             </div>
         
-            <div v-if="!mostrarCarrito" class="contenedor-centrado">
-              <button @click="obtenerCarrito">Mostrar carrito</button>
+            <div v-if="!mostrarCarrito" class="contenedor-centrado1">
+              <button @click="obtenerCarrito">Mostrar Carrito</button>
             </div>
         
             <div class="contenedor-centrado">
@@ -119,12 +110,12 @@
         
           <script>
             //const URL = "http://127.0.0.1:5000/"
-            const URL = "https://arielcodo.pythonanywhere.com/"
+            const URL = "https://xtsulyts.pythonanywhere.com/"
         
             const app = Vue.createApp({
               data() {
                 return {
-                  productos: [],
+                  burgers: [],
                   mostrarCarrito: false,
                   carrito: [],
                 };
@@ -134,13 +125,13 @@
               },
               methods: {
                 obtenerProductos() {
-                  fetch(URL + 'productos')
+                  fetch(URL + 'burgers')
                     .then(response => response.json())
                     .then(data => {
-                      this.productos = data;
+                      this.burgers = data;
                     })
                     .catch(error => {
-                      console.error(URL + 'productos', error);
+                      console.error(URL + 'burgers', error);
                       alert('Error al obtener los productos.');
                     });
                 },
@@ -203,7 +194,7 @@
             app.mount('#app');
           </script>
         </div>
-    </article>
+      </article>
 
     <footer id="footer">
 
@@ -221,7 +212,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="scripts.js"></script>
+   
 
 </body>
 
