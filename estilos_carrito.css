@@ -11,7 +11,18 @@
     justify-content: center;
 }
 .contenedor-centrado1 button {
-    padding: 8px;
+    padding: 6px;
+    margin:4px;
+    background-color: rgb(53, 55, 54);
+    font-size: 1.0em;
+    color:  darkkhaki;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contenedor-centrado button {
+    padding: 6px;
     margin:4px;
     background-color: rgb(53, 55, 54);
     font-size: 1.5em;
@@ -20,6 +31,15 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+.contenedor-centrado a {
+    font-size: 0.5em;
+    color:  darkkhaki;
+    font-weight: bold;
+}
+
+
 
 
 p {
@@ -45,6 +65,9 @@ form {
     border-radius: 5px;
 }
 
+#enlace-sin-subrayado {
+    text-decoration: none;
+}
 table {
     padding-top: 80px;
     max-width: 90%;

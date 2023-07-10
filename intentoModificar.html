@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="Img/Icono2.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <title>Institucional</title>
+    <link rel="stylesheet" href="backend.css">
+    <link rel="stylesheet" href="./Iconos/style.css">
+
+    <!--MENSAJE EN CONSOLA-->
+    <script>
+
+        var mensaje = ("Pagina institucional")
+        console.log("Esto es una" + " " + mensaje);
+        var alumno = new Object()
+        alumno.nombre = 'Walter'
+        alumno.apellido = 'Frias'
+        alumno.curso = 'Codo a Codo fullstack'
+        alumno.comicion = '23006'
+        console.log('Alumno :', alumno.nombre, alumno.apellido, '.', ' ', 'Cursando', alumno.curso, 'Comición', alumno.comicion)
+    </script>
+</head>
+
+<body>
+    <header id="Grid_header">
+        <section id="arriba">
+            <div class="Flex__Cointainer">
+                <div class="Flex__Cointainer Titulo">
+                    <a href="index.html"><img src="Img/Logo2.png" width="50" alt="Logo"></a>
+                    <h4><a href="index.html" id="SB">ST BURGER API</a></h4>
+                </div>
+                <span class="Menu__icon icon-menu3"></span>
+
+                <nav class="Flex__Cointainer Menu">
+                    <ul>
+                        <li class="Nav__li"><a href="index.html" >Api</a></li>
+                        <li class="Nav__li"><a href="lista.html" >Listado de Productos</a></li>
+                        <li class="Nav__li"><a href="pedidos.html" >Realizar Pedido</a></li>
+                        <li class="Nav__li"><a href="intentoModificar.html" >Modificar Productos</a></li>
+                        <li class="Nav__li"><a href="eliminar.html" >Eliminar Productos</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+
+    <article class="contenedor_2">
+        <div class="item2">
+            <h1>MODIFICAR PRODUCTO</h1>
+            <form id="formulario">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" required><br>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required><br>
+
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required><br>
+
+                <button type="submit">Guardar Cambios</button>
+                <a href="index.html">Menu principal</a>
+            </form>
+        </div>
+    </article>
+
+    <script>
+
+        //const URL ="https://iv4n2000.pythonanywhere.com/"
+        const URL = "https://xtsulyts.pythonanywhere.com/"
+
+        // Capturamos el evento de envío del formulario
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitamos que se envíe el form por ahora
+
+  // Obtenemos los valores del formulario
+    var codigo = document.getElementById('codigo').value;
+    var descripcion = document.getElementById('descripcion').value;
+    var cantidad = document.getElementById('cantidad').value;
+    var precio = document.getElementById('precio').value;
+
+    // Creamos un objeto con los datos del producto
+    var producto = {
+        codigo: codigo,
+        descripcion: descripcion,
+        cantidad: cantidad,
+        precio: precio
+    };
+
+    // Realizamos la solicitud PUT al servidor
+    fetch(URL + 'burgers/' + codigo, {
+        method: 'PUT',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(producto)
+    })
+        .then(function (response) {
+        // Código para manejar la respuesta
+        if (response.ok) {
+            return response.json(); // Parseamos la respuesta JSON
+        } else {
+            // Si hubo un error, lanzar explícitamente una excepción
+            // para ser "catcheada" más adelante
+            throw new Error('Error al modificar el producto.');
+        }
+        })
+        .then(function (data) {
+        alert('Producto modificado correctamente.');
+        //Limpiamos el formulario.
+        document.getElementById('codigo').value = "";
+        document.getElementById('descripcion').value = "";
+        document.getElementById('cantidad').value = "";
+        document.getElementById('precio').value = "";
+        })
+        .catch(function (error) {
+        // Código para manejar errores
+        alert('Error al modificar el producto.');
+        console.log(error);
+        });
+    });
+
+    </script>
+
+<footer id="footer">
+
+    <ul class="Flex__Cointainer" id="Redes">
+        <li class="Redes__item"><a href="https://www.facebook.com/profile.php?id=100055273845013"
+                Target="_blank"><span class="icon-facebook2"></span></a></li>
+        <li class="Redes__item"><a href="https://instagram.com/saint.burger?igshid=YmMyMTA2M2Y="
+                Target="_blank"><span class="icon-instagram"></span></a></li>
+        <li class="Redes__item"><a href="" Target="_blank"><span class="icon-whatsapp"></span></a></li>
+        <li class="Redes__item"><a href="https://github.com/codoacodo-unidad-1/Proyecto_SaintBuger_grupo2.git"
+                Target="_blank"><span class="icon-github"></span></a></li>
+
+    </ul>
+
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
