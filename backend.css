@@ -138,9 +138,9 @@ body {
     grid-template-columns: auto;
     padding-right: 30px;
     padding-left: 30px;
-    padding-bottom: 30px;
     padding-top: 120px;
     background-color: rgb(53, 55, 54);
+    height: 88vh;
 }
 .contenedor_2 div {
     background-color:  rgb darkkhaki /*rgb(106, 99, 86)*/;
@@ -227,6 +227,45 @@ body {
     width: 100%;
     position: relative;
     object-fit: cover;
+}
+
+/*---------------------------------ESTILOS "agregar.html -------------------------------------------*/
+#item2__agregar {
+    grid-column: 4 span;
+    background-image: url(Img/foto_institucional_4.jpg);
+    background-position: bottom;
+   
+}
+#SB__agregar {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3em;
+    letter-spacing: 8px;
+    color: darkkhaki;
+    text-decoration: none;
+    margin-left: 10px;
+    padding-left: 0px;
+    padding-right: 0px;}
+
+.f__agregar {
+    margin-top: 6em;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.f__agregar-b {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+
+}
+.f__agregar-c {
+    min-width: 350px;
+    
+}
+#button__agregar {
+    min-width: 500px;
+    margin: 20px auto 10px;
 }
 
 
