@@ -1,172 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <link rel="icon" href="Img/Icono2.ico">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="3_cac_home_normalize.css">
-    <link rel="stylesheet" type="text/css" href="">
-    <title>Eliminar</title>
-    <link rel="stylesheet" href="eliminar.css">
-    <link rel="stylesheet" href="./Iconos/style.css">
-
-    <!--MENSAJE EN CONSOLA-->
-    <script>
-
-        var mensaje = ("tp_Final")
-        console.log();
-        var alumno = new Object()
-        alumno.nombre = 'Walter'
-        alumno.apellido = 'Frias'
-        alumno.curso = 'Codo a Codo fullstack'
-        alumno.comicion = '23006'
-        console.log('Alumno :', alumno.nombre, alumno.apellido, '.', ' ', 'Cursando', alumno.curso, 'Comición', alumno.comicion)
-    </script>
+    <link rel="icon" href="Img/Icono2.ico">
+    <title>Eliminar Productos | Saint Burger</title>
+    <link rel="stylesheet" href="Iconos/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
 
-    <!--HEADER-->
-
-    <header id="Grid_header">
-        <section id="arriba">
-            <div class="Flex__Cointainer">
-                <div class="Flex__Cointainer Titulo">
-                    <a href="index.html"><img src="Img/Logo2.png" width="50" alt="Logo"></a>
-                    <h4><a href="index.html" id="SB">ELIMINAR PRODUCTOS</a></h4>
-                </div>
-                <!--<span class="Menu__icon icon-menu3"></span>-->
-
-                <nav class="Flex__Cointainer Menu">
-                    <ul>
-                        <li class="Nav__li"><a href="index.html" >Api</a></li>
-                        <li class="Nav__li"><a href="agregar.html" >Agregar Productos</a></li>
-                        <li class="Nav__li"><a href="lista.html" >Listado de Productos</a></li>
-                        <li class="Nav__li"><a href="pedidos.html" >Realizar Pedido</a></li>
-                        <li class="Nav__li"><a href="modificar.html" >Modificar Productos</a></li>
-                        
-
-                    </ul>
-                </nav>
+    <header>
+        <div class="header-inner">
+            <div class="brand">
+                <a href="index.html"><img src="Img/Logo2.png" alt="Logo Saint Burger"></a>
+                <a href="index.html" class="brand-name">Saint Burger</a>
             </div>
-        </section>
+            <button class="menu-toggle icon-menu3" id="menu-toggle" aria-label="Abrir menú"></button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="agregar.html">Agregar Productos</a></li>
+                    <li><a href="lista.html">Listado</a></li>
+                    <li><a href="pedidos.html">Realizar Pedido</a></li>
+                    <li><a href="modificar.html">Modificar</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!--CONTENIDO DE LA PAGINA-->
-    <article class="contenedor_2">
-        <div class="item1">
+    <main>
+        <div id="app" class="table-page">
+            <h1>Eliminar Productos</h1>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Descripcion</th>
+                            <th class="text-right">Cantidad</th>
+                            <th class="text-right">Precio</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="producto in productos" :key="producto.codigo">
+                            <td>{{ producto.codigo }}</td>
+                            <td>{{ producto.descripcion }}</td>
+                            <td class="text-right">{{ producto.cantidad }}</td>
+                            <td class="text-right">${{ producto.precio }}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" @click="eliminarProducto(producto.codigo)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </article>    
-    
+    </main>
 
-
-    <article class="contenedor_2">
-        <div class="item2">
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Descripción</th>
-                        <th>Cantidad</th>
-                        <th align="right">Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="producto in productos">
-                        <td>{{ producto.codigo }}</td>
-                        <td>{{ producto.descripcion }}</td>
-                        <td>{{ producto.cantidad }}</td>
-                        <td align="right">{{ producto.precio }}</td>
-                        <td><button @click="eliminarProducto(producto.codigo)">Eliminar</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        
-         
-        
-            <script src="https://unpkg.com/vue@next"></script>
-            <script>
-          
-                const URL = "https://xtsulyts.pythonanywhere.com/"
-        
-                const app = Vue.createApp({
-                    data() {
-                        return {
-                            productos: []
-                        }
-                    },
-                    methods: {
-                        obtenerProductos() {
-                            // Obtenemos el contenido del inventario
-                            fetch(URL + 'burgers')
-                                .then(response => {
-                                    if (response.ok) {
-                                        return response.json(); // Parseamos la respuesta JSON
-                                    } else {
-                                        // Si hubo un error, lanzar explícitamente una excepción
-                                        // para ser "catcheada" más adelante
-                                        throw new Error('Error al obtener los productos.');
-                                    }
-                                })
-                                .then(data => {
-                                    // El código Vue itera este elemento para generar la tabla
-                                    this.productos = data;
-                                })
-                                .catch(error => {
-                                    console.log('Error:', error);
-                                    alert('Error al obtener los productos.');
-                                });
-                        },
-                        eliminarProducto(codigo) {
-                            // Eliminamos el producto de la fila seleccionada
-                            fetch(URL + `burgers/${codigo}`, { method: 'DELETE' })
-                                .then(response => {
-                                    if (response.ok) {
-                                        // Eliminar el producto de la lista después de eliminarlo en el servidor
-                                        this.productos = this.productos.filter(producto => producto.codigo !== codigo);
-                                        console.log('Producto eliminado correctamente.');
-                                    } else {
-                                        // Si hubo un error, lanzar explícitamente una excepción
-                                        // para ser "catcheada" más adelante
-                                        throw new Error('Error al eliminar el producto.');
-                                    }
-                                })
-                                .catch(error => {
-                                    // Código para manejar errores
-                                    alert('Error al eliminar el producto.');
-                                });
-                        }
-                    },
-                    mounted() {
-                        //Al cargar la página, obtenemos la lista de productos
-                        this.obtenerProductos();
-                    }
-                });
-        
-                app.mount('body');
-            </script>
-        </div>
-    </article>
-
-    <footer id="footer">
-
-        <ul class="Flex__Cointainer" id="Redes">
-            <li class="Redes__item"><a href="https://www.facebook.com/profile.php?id=100055273845013"
-                    Target="_blank"><span class="icon-facebook2"></span></a></li>
-            <li class="Redes__item"><a href="https://instagram.com/saint.burger?igshid=YmMyMTA2M2Y="
-                    Target="_blank"><span class="icon-instagram"></span></a></li>
-            <li class="Redes__item"><a href="" Target="_blank"><span class="icon-whatsapp"></span></a></li>
-            <li class="Redes__item"><a href="https://github.com/codoacodo-unidad-1/Proyecto_SaintBuger_grupo2.git"
-                    Target="_blank"><span class="icon-github"></span></a></li>
-
+    <footer>
+        <ul class="social-links">
+            <li><a href="https://www.facebook.com/profile.php?id=100055273845013" target="_blank"><span class="icon-facebook2"></span></a></li>
+            <li><a href="https://instagram.com/saint.burger?igshid=YmMyMTA2M2Y=" target="_blank"><span class="icon-instagram"></span></a></li>
+            <li><a href="" target="_blank"><span class="icon-whatsapp"></span></a></li>
+            <li><a href="https://github.com/codoacodo-unidad-1/Proyecto_SaintBuger_grupo2.git" target="_blank"><span class="icon-github"></span></a></li>
         </ul>
-
     </footer>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/eliminar.js"></script>
 </body>
-
 </html>

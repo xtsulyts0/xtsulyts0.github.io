@@ -1,0 +1,574 @@
+/* ==========================================================================
+   Saint Burger — main.css
+   ========================================================================== */
+
+/* --- Reset ---------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Variables ------------------------------------------------------------ */
+:root {
+    --clr-header:  #282b30;
+    --clr-bg:      #353736;
+    --clr-warm:    rgb(106, 99, 86);
+    --clr-accent:  #bdb76b;   /* darkkhaki */
+    --clr-border:  lightslategray;
+    --clr-text:    #e8e0cc;
+    --header-h:    70px;
+    --font-serif:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* --- Base ----------------------------------------------------------------- */
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    background-color: var(--clr-header);
+    z-index: 100;
+    border-bottom: 1px solid rgba(189, 183, 107, 0.2);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 1.5rem;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 42px;
+    height: auto;
+}
+
+.brand-name {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    letter-spacing: 5px;
+    color: var(--clr-accent);
+    white-space: nowrap;
+}
+
+/* --- Nav ------------------------------------------------------------------ */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.15rem;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.88rem;
+    color: var(--clr-accent);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+nav ul li a:hover {
+    background-color: var(--clr-warm);
+    border-color: var(--clr-accent);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--clr-accent);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   Main / Page content
+   ========================================================================== */
+main {
+    flex: 1;
+    padding-top: var(--header-h);
+}
+
+/* ==========================================================================
+   Hero — index.html
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: calc(100vh - var(--header-h));
+    background-image: url('../Img/foto_institucional_4.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.52);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    color: var(--clr-accent);
+    letter-spacing: 12px;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--clr-text);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Cards — index.html
+   ========================================================================== */
+.cards-section {
+    background-color: var(--clr-header);
+    padding: 2.5rem 2rem;
+}
+
+.cards-section h2 {
+    text-align: center;
+    color: var(--clr-accent);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--clr-bg);
+    border: 1px solid var(--clr-accent);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    width: 145px;
+    transition: background-color 0.25s, transform 0.2s;
+}
+
+.card:hover {
+    background-color: var(--clr-warm);
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--clr-accent);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.8rem;
+    color: var(--clr-text);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background-color: var(--clr-warm);
+    color: var(--clr-accent);
+    border-color: var(--clr-accent);
+}
+
+.btn-primary:hover {
+    background-color: #6e6550;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--clr-accent);
+    border-color: var(--clr-accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--clr-warm);
+}
+
+.btn-danger {
+    background-color: #5c2020;
+    color: #f5c6c6;
+    border-color: #a04040;
+}
+
+.btn-danger:hover {
+    background-color: #7a2828;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   Form pages — agregar, modificar
+   ========================================================================== */
+.form-page {
+    min-height: calc(100vh - var(--header-h) - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.form-card {
+    background-color: var(--clr-header);
+    border: 1px solid var(--clr-border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 520px;
+}
+
+.form-card h1 {
+    font-family: var(--font-serif);
+    color: var(--clr-accent);
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-card h2 {
+    font-family: var(--font-serif);
+    color: var(--clr-accent);
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1.1rem;
+}
+
+label {
+    color: var(--clr-accent);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 0.55rem 0.75rem;
+    background-color: var(--clr-bg);
+    border: 1px solid var(--clr-border);
+    border-radius: 4px;
+    color: var(--clr-text);
+    font-size: 0.95rem;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Table pages — lista, eliminar, pedidos
+   ========================================================================== */
+.table-page {
+    padding: 2.5rem 1.5rem;
+    min-height: calc(100vh - var(--header-h) - 56px);
+}
+
+.table-page h1 {
+    font-family: var(--font-serif);
+    color: var(--clr-accent);
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.table-page h3 {
+    font-family: var(--font-serif);
+    color: var(--clr-accent);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-align: center;
+    margin: 2.5rem 0 1rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--clr-accent);
+    border: 1px solid var(--clr-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: var(--clr-warm);
+}
+
+th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    color: #1a1a1a;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--clr-border);
+}
+
+td {
+    padding: 0.6rem 1rem;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+td.text-right,
+th.text-right {
+    text-align: right;
+}
+
+.table-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    background-color: var(--clr-header);
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(189, 183, 107, 0.2);
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.social-links a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.3rem;
+    color: var(--clr-accent);
+    border-radius: 4px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+    color: rgb(78, 162, 100);
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   Responsive — tablet
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root {
+        --header-h: 60px;
+    }
+
+    .brand-name {
+        font-size: 1.25rem;
+        letter-spacing: 3px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: var(--header-h);
+        left: 0;
+        right: 0;
+        background-color: var(--clr-header);
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.35s ease;
+        border-top: 1px solid rgba(189, 183, 107, 0.15);
+    }
+
+    nav.open {
+        max-height: 400px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 1rem 1rem;
+    }
+
+    nav ul li a {
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+        letter-spacing: 6px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 1.75rem 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   Responsive — mobile
+   ========================================================================== */
+@media (max-width: 479px) {
+    .brand-name {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 200px;
+    }
+
+    th, td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.82rem;
+    }
+}
